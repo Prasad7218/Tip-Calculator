@@ -1,8 +1,8 @@
 const Output=(props)=>{
     return(
         <>
-        <div>Total Customer={props.msg}</div>
-        <div>Tip=</div>
+        <div>Total Customer=</div>
+        <div>Tip={props.msg}</div>
         </>
     )
 }

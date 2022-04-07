@@ -14,7 +14,8 @@ const Calculate=()=>{
     const[list,setList]=useState([])
     const[service,setService]=useState('');
     const[inputAmt,setInputAmt]=useState('');
-    const[output,setOutput]=useState('')
+    const[output,setOutput]=useState('donee')
+
     const changeHandler=(event)=>{
         const value=event.target.value;
         setInputAmt(value);
@@ -25,12 +26,25 @@ const Calculate=()=>{
         setInputText(value)
         }
 
+        const changeHandler2=(event)=>{
+            const value=event.target.value;
+            console.log(value);
+            // setService(value);
+        }
+
     const btnClickHandler=()=>{
         console.log('click');
         const items=[...list];
         items.push(inputText);
         setList(items);
-    }    
+    }
+    
+    const btnClickHandler1=()=>{
+        console.log('hello');
+        const tip=inputAmt*service;
+        setOutput(tip);
+        
+    }
     return(
         <>
         <Header/>
@@ -40,7 +54,9 @@ const Calculate=()=>{
         changeHandler={changeHandler}/>
 
         <Service 
-        value={service}/>
+        value={service}
+        changeHandler2={changeHandler2}
+        />
 
         <Customer
         value={inputText} 
@@ -54,13 +70,7 @@ const Calculate=()=>{
         
         <Button1
         btnlabel="Calculate Tip"
-        btnClickHandler1={(event)=>{
-            const value=event.target.value
-            console.log(value)
-            const tip=inputAmt*0.2;
-            setOutput(tip);
-            
-        }}
+        btnClickHandler1={btnClickHandler1}
         />
 
         <Output msg={output}/>
