@@ -1,8 +1,8 @@
-const Input =(props)=>{
+const Input =({inputAmt})=>{
     return(
         <>
         <input 
-          value={props.value}
+          value={inputAmt}
           type="number"
           placeholder="billamt"
           onChange={props.changeHandler}/><br/>
